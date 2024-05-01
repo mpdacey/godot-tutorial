@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://v634f2p3ibge"]
+[gd_scene load_steps=16 format=3 uid="uid://v634f2p3ibge"]
 
 [ext_resource type="PackedScene" uid="uid://6vbh73g0f4pw" path="res://scenes/player.tscn" id="1_kosyc"]
+[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_omdjd"]
 [ext_resource type="Texture2D" uid="uid://cttkhgb0lttod" path="res://assets/sprites/world_tileset.png" id="2_agqs2"]
 [ext_resource type="PackedScene" uid="uid://d1mnx2ymeq3uv" path="res://scenes/platform.tscn" id="3_38ebw"]
+[ext_resource type="FontFile" uid="uid://dod00du3hyhrf" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_d851h"]
 [ext_resource type="PackedScene" uid="uid://ckvjhn8nr26xm" path="res://scenes/coin.tscn" id="4_m3ncr"]
 [ext_resource type="PackedScene" uid="uid://p2qwytac12yj" path="res://scenes/killzone.tscn" id="5_prox1"]
 [ext_resource type="PackedScene" uid="uid://bh2qellytgs7h" path="res://scenes/slime.tscn" id="6_1v61w"]
@@ -454,6 +456,10 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_omdjd")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_11sg4")
 format = 2
@@ -652,3 +658,17 @@ WASD or
 Arrows to
 Move"
 horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointsLabel" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 584.0
+offset_right = 288.0
+offset_bottom = 616.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("4_d851h")
+theme_override_font_sizes/font_size = 32
+text = "POINTS: 0"
+vertical_alignment = 2
